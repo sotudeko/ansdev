@@ -1,0 +1,12 @@
+- hosts: localhost
+  tasks:
+    - name: Add tag to Nexus Repository
+      nexus_repo_tag: 
+        state: present
+        tag_name: "T1"
+        repo_name: "R1"
+      register: result
+
+    - debug: var=result    
+
+

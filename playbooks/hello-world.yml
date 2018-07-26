@@ -1,0 +1,9 @@
+- hosts: localhost
+  tasks:
+    - name: Hello World
+      shell: /bin/echo "Hello World!"
+      register: op
+
+    - debug:
+        var: op.stdout
+      

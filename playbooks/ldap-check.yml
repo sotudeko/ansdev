@@ -1,0 +1,11 @@
+- hosts: localhost
+  tasks:
+    - name: check ldap entry
+      ldap_entry:
+        dn: dc=example,dc=org
+        objectClass: 
+          - organizationalRole
+          - simpleSecurityObject
+        server_uri: ldap://localhost/
+        bind_dn: cn=admin,dc=example,dc=org
+        bind_pw: admin

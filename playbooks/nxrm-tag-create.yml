@@ -1,0 +1,18 @@
+- hosts: localhost
+  tasks:
+    - name: Create a tag
+      uri:
+        url: "http://localhost:8081/service/rest/beta/tags"
+        method: POST
+        user: "admin"
+        password: "admin123"
+        body: "{{ lookup('file','data.json') }}"
+        force_basic_auth: yes
+        body_format: json
+        headers: 
+          Content-Type: "application/json"
+      register: result
+
+    - debug: var=result    
+
+
