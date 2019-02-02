@@ -1,0 +1,11 @@
+{
+ "name": "jenkins-Repo-Staging-WebGoat-Example-28",
+ "attributes": { 
+    "buildUser": "sotudeko",
+    "buildJob": "Repo-Staging/WebGoat-Example",
+    "buildId": "9",
+    "appVersion": "1.0.3",
+    "buildUrl": "http://sola.local:8080/job/Repo-Staging/job/WebGoat-Example/9/",
+    "iqScanReportUrl": "http://localhost:8070/ui/links/application/webgoat-ci/report/fb5c070ad8e34eefb6021cbaeec8f3fd"
+  }
+}

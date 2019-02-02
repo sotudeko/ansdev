@@ -1,0 +1,47 @@
+- hosts: localhost
+  # vars:
+  #   tagfile: tag_file.json
+  tasks:
+    # - name: List tags
+    #   nxrm_tag_list:
+    #   register: oplist
+
+    # - debug:
+    #     var: oplist
+
+    - name: Create tag
+      nxrm_tag:
+        repo_url: "http://localhost:8081"
+        user: "admin"
+        password: "admin123"
+        state: present
+        body: "{{ lookup('file', tagfile) }}"
+      register: opcreate
+
+    - debug:
+        var: opcreate
+
+    # - name: Delete tag 
+    #   nxrm_tag:
+    #     tag_name: "jenkins-Repo-Staging-WebGoat-Example-27"
+    #     user: "admin"
+    #     password: "admin123"
+    #     state: absent
+    #   register: opdel
+
+    # - debug:
+    #     var: opdel
+
+    # - name: Asscoaite tag with a component
+    #   nxrm_tag_associate:
+    #     repo_name: "staging-dev"
+    #     tag_name: "jenkins-Repo-Staging-WebGoat-Example-15"
+    #     groupId: "WebGoat"
+    #     artifactId: "WebGoat"
+    #     version: "1.0.3"
+    #     format: "maven"
+    #   register: opass
+
+    # - debug:
+    #     var: opass
+

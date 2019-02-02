@@ -1,0 +1,21 @@
+- hosts: localhost
+  vars:
+    install_file: 
+      osx: https://download.sonatype.com/nexus/3/latest-mac.tgz 
+      unix: https://download.sonatype.com/nexus/3/latest-unix.tar.gz
+    download_dir: /tmp
+    install_dir: /opt/nexus3
+  tasks:
+    - name: Download the latest installation file
+      get_url: 
+        url: "{{install_file[os]}}"
+        dest: "{{download_dir}}"
+        force: yes
+        owner: sotudeko
+        group: staff
+        mode: 0666
+      register: op
+
+    - debug:
+        var: op
+      

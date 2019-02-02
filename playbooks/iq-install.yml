@@ -1,0 +1,38 @@
+- hosts: localhost
+  vars:
+    install_file: https://download.sonatype.com/clm/server/latest.tar.gz
+    install_zipfile: https://download.sonatype.com/clm/server/latest.zip
+    download_dir: /tmp
+    install_dir: /opt/nexus-iq
+  tasks:
+    - create temp download directory
+    - name: Download the latest installation file
+      unarchive:
+        src: "{{install_zipfile}}"
+        dest: "{{download_dir}}"
+        remote_src: yes
+        list_files: yes
+        owner: sotudeko
+        group: staff
+        mode: 0666
+      register: op
+
+      #get_url: 
+        #url: "{{install_file}}"
+        #dest: "{{download_dir}}"
+        #force: yes
+        #owner: sotudeko
+        #group: staff
+        #mode: 0666
+      #register: op
+
+    - debug:
+        var: op
+
+    - set_fact: 
+        destfile="{{op.dest}}"
+
+    - debug:
+        var: destfile
+
+      

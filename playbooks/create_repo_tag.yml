@@ -1,0 +1,10 @@
+- hosts: localhost
+  tasks:
+    - name: Create tag
+      nxrm_tag:
+        state: present
+        body: "{{ lookup('file', tagfile) }}"
+      register: opcreate
+
+    - debug:
+        var: opcreate
